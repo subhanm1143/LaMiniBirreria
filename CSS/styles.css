@@ -1,0 +1,551 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: #f9eddd;
+    background-repeat: repeat; /* This will tile the image */
+    background-size: 100% auto; /* This ensures the image tiles without scaling */
+    margin: 0;
+    padding: 0;
+    font-family: "Copperplate",monospace;
+    font-size: 20px;
+    color: #333;
+  }
+  
+/* General Header Styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #000000;
+}
+
+/* Logo Styling */
+header .logo img {
+  width: 100px;
+  transition: transform 0.3s; /* Add smooth transitions */
+  cursor: pointer;
+}
+
+header .logo img:hover {
+  transform: scale(1.2); /* Slightly increase size on hover */
+}
+
+/* Navigation Menu */
+header nav ul {
+  display: flex;
+  list-style: none;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  position: relative; /* Needed for pseudo-elements */
+  transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+  color: #cf3a2a; /* Change color on hover */
+}
+
+/* Add underline animation */
+header nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Slightly below the text */
+  width: 0;
+  height: 2px;
+  background-color: #cf3a2a;
+  transition: width 0.3s;
+}
+
+header nav ul li a:hover::after {
+  width: 100%; /* Expand underline on hover */
+}
+
+/* Order Button */
+.order-button {
+  background-color: #a82e21;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.order-button:hover {
+  background-color: #cf3a2a;
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 890px) {
+  header nav {
+    display: none; /* Hide the navigation menu */
+  }
+
+  .order-button {
+    margin-left: auto; /* Align the button to the far right */
+  }
+
+  header {
+    justify-content: space-between; /* Ensure logo and button stay on opposite ends */
+  }
+}
+
+  
+  
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    color: white;
+  }
+  
+  .hero-text {
+    flex: 1; /* Ensure text takes up available space */
+    position: relative;
+    padding: 50px 60px; /* Increase padding to make the bubble bigger */
+    background-color: #a82e21; /* Red background color for the bubble */
+    color: white;
+    font-weight: bold;
+    text-align: left;
+    border-radius: 40% 60% 50% 70% / 60% 50% 70% 40%; /* Organic bubble shape */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for better visibility */
+    transition: all 0.5s ease-in-out; /* Smooth hover transition */
+    animation: bubbleWiggle 4s infinite ease-in-out; /* Subtle bubbling effect */
+  }
+  
+  .hero-text h1 {
+    font-size: 4rem; /* Larger text for title */
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: white; /* White text inside the red bubble */
+  }
+  
+  .hero-text h2 {
+    font-size: 2.2rem; /* Increase size of subtitle */
+    margin: 10px 0;
+    color: white; /* White text inside the red bubble */
+  }
+  
+  .hero-text .address {
+    font-size: 1.2rem; /* Slightly bigger text for address */
+    margin-top: 20px;
+    color: white; /* White text inside the red bubble */
+  }
+  
+  /* Optional: Animation for a dynamic bubble */
+  @keyframes bubbleWiggle {
+    0%, 100% {
+      border-radius: 40% 60% 50% 70% / 60% 50% 70% 40%;
+    }
+    50% {
+      border-radius: 50% 40% 60% 50% / 50% 70% 40% 60%;
+    }
+  }
+  
+  .hero-text {
+    animation: bubbleWiggle 4s infinite ease-in-out; /* Subtle bubbling effect */
+  }
+  
+  .hero-image {
+    flex: 1;
+    text-align: center; /* Center the image horizontally */
+    border-radius: 10px;
+    max-width: 90%;
+  }
+  
+  .menu-card {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    padding: 20px; /* Reduced padding */
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 60%;
+    margin: 10px auto; /* Added slight margin for spacing */
+  }
+  
+  .menu-card img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Prevent cropping */
+    border-radius: 10px;
+    margin-bottom: 15px; /* Reduced spacing under image */
+  }
+  
+  .menu-card h3 {
+    font-size: 1.6rem; /* Slightly smaller font size */
+    color: #966751;
+    font-weight: bold;
+    margin-bottom: 5px; /* Reduced spacing */
+  }
+  
+  .menu-card p {
+    font-size: 1rem; /* Adjusted font size */
+    color: #666;
+    margin: 0; /* Removed extra margin */
+  }
+  
+  
+  /* Fade effect for menu items */
+  .fade-in-out {
+    opacity: 1 !important;
+  }
+  
+  
+  /* Responsive Design for Hero Section */
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+      padding: 30px;
+      text-align: center;
+      padding-bottom: 0;
+    }
+  
+    .hero-text h1 {
+      font-size: 2.5rem; /* Adjust size for smaller screens */
+    }
+  
+    .hero-text h2 {
+      font-size: 1.4rem; /* Adjust size for smaller screens */
+    }
+  
+    .hero-image img {
+      max-height: 300px; /* Adjust image size on small screens */
+    }
+    .menu-card{
+      max-width: 100%;
+    }
+  }
+  
+    
+  .popular-items {
+    text-align: center;
+    margin: 50px 0;
+    margin-bottom: 0px;
+  }
+  
+  .popular-items h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .item-slider {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .item {
+    text-align: center;
+    max-width: 200px;
+  }
+  
+  .item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .full-menu {
+    background-color: #a82e21;
+    color: white;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px 40px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .full-menu:hover {
+    background-color: #cf3a2a;
+    transform: scale(1.2);
+  }
+  
+
+  /*Carousel*/
+  :root {
+    --marquee-width: 100%;
+    --marquee-height: 20%;
+    /* --marquee-elements: 12; */ /* defined with JavaScript */
+    --marquee-elements-displayed: 5;
+    --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
+    --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
+  }
+  
+  .marquee {
+    width: var(--marquee-width);
+    height: var(--marquee-height);
+    background-color: transparent;
+    color: #eee;
+    overflow: hidden;
+    position: relative;
+  }
+  .marquee:before, .marquee:after {
+    position: absolute;
+    top: 0;
+    width: 10rem;
+    height: 100%;
+    content: "";
+    z-index: 1;
+  }
+  .marquee:before {
+    left: 0;
+    background: linear-gradient(to right, transparent 0%, transparent 100%); /* Transparent fade on left */
+  }
+  
+  .marquee:after {
+    right: 0;
+    background: linear-gradient(to left, transparent 0%, transparent 100%); /* Transparent fade on right */
+  }
+  .marquee-content {
+    list-style: none;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    animation: scrolling var(--marquee-animation-duration) linear infinite;
+  }
+  /* .marquee-content:hover {
+    animation-play-state: paused;
+  } */
+  @keyframes scrolling {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements))); }
+  }
+  .marquee-content li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+    flex-shrink: 0;
+    width: var(--marquee-element-width);
+    max-height: 100%;
+    font-size: calc(var(--marquee-height)*3/4); /* 5rem; */
+    white-space: nowrap;
+    padding-left: 15px;
+  }
+  
+  .marquee-content li img {
+    width: 100%;
+    /* height: 100%; */
+  }
+  
+  @media (max-width: 600px) {
+    html { font-size: 12px; }
+    :root {
+      --marquee-width: 100vw;
+      --marquee-height: 100%;
+      --marquee-elements-displayed: 3;
+    }
+    .marquee:before, .marquee:after { width: 5rem; }
+  } 
+  .menu-card-popular div {
+    background:#ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 95%; /* Adjust card width */
+    margin: 0 auto; /* Center the card */
+  }
+  
+  .menu-card-popular div:hover {
+    transform: scale(.9);
+  }
+  
+  .menu-card-popular img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    object-fit: cover;
+  }
+  
+  .menu-card-popular h3 {
+    font-size: 1.2rem;
+    color: #966751;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .menu-card-popular p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+  }
+  
+  /* Footer Container */
+.custom-footer {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content:space-evenly;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  gap: 20px;
+}
+
+.footer-center {
+  flex: 2; /* Allow the middle section to take up extra space */
+}
+/* Left Section */
+.footer-left {
+  text-align: left;
+  flex: 1;
+}
+
+.footer-logo {
+  width: 100px; /* Adjust size as needed */
+  margin-bottom: 10px;
+}
+
+.footer-address p {
+  margin: 5px 0;
+}
+
+/* Center Section */
+.footer-center iframe {
+  width: 100%; /* Set width to 50% of the screen */
+  border-radius: 10px; /* Add rounded corners */
+  max-width: 100%; /* Ensure it doesn't exceed its container */
+}
+
+/* Right Section */
+.footer-right {
+  text-align: center;
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-right {
+    text-align: center;
+  }
+
+  .footer-center iframe {
+    width: 90%;
+    height: 150px;
+  }
+}
+
+.flying-chickens {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allow clicks to pass through */
+  z-index: -1;
+  overflow: hidden;
+}
+
+.chicken-piece {
+  position: absolute;
+  width: 100px; /* Adjust chicken size */
+  height: auto;
+  pointer-events: none; /* Disable interaction */
+  user-select: none;
+  transition: transform 0.2s; /* Optional smooth movement */
+}
+
+/*INFO CARDS*/
+.info-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 50px 20px;
+}
+
+.info-cards .card {
+  flex: 1 1 calc(25% - 20px);
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-cards .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.info-cards .card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.info-cards .card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #966751;
+}
+
+.info-cards .card p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.info-cards .card .card-link {
+  font-size: 1rem;
+  color: #a82e21;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.info-cards .card .card-link:hover {
+  color: #b01550;
+}
+
+@media screen and (max-width: 800px) {
+  .info-cards {
+      flex-direction: column;
+      gap: 30px;
+  }
+
+  .info-cards .card {
+      flex: 1 1 100%;
+  }
+}

@@ -6,7 +6,7 @@
   }
   
   body {
-    background: #f9eddd;
+    background: #000000;
     background-repeat: repeat; /* This will tile the image */
     background-size: 100% auto; /* This ensures the image tiles without scaling */
     margin: 0;
@@ -22,7 +22,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #000000;
+  background-color: white;
 }
 
 /* Logo Styling */
@@ -48,14 +48,14 @@ header nav ul li {
 
 header nav ul li a {
   text-decoration: none;
-  color: white;
+  color: black;
   font-weight: bold;
   position: relative; /* Needed for pseudo-elements */
   transition: color 0.3s;
 }
 
 header nav ul li a:hover {
-  color: #cf3a2a; /* Change color on hover */
+  color: #c560a0; /* Change color on hover */
 }
 
 /* Add underline animation */
@@ -66,7 +66,7 @@ header nav ul li a::after {
   bottom: -5px; /* Slightly below the text */
   width: 0;
   height: 2px;
-  background-color: #cf3a2a;
+  background-color: #c560a0;
   transition: width 0.3s;
 }
 
@@ -76,7 +76,7 @@ header nav ul li a:hover::after {
 
 /* Order Button */
 .order-button {
-  background-color: #a82e21;
+  background-color: #c85d9c;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -87,7 +87,7 @@ header nav ul li a:hover::after {
 }
 
 .order-button:hover {
-  background-color: #cf3a2a;
+  background-color: #c560a0;
   transform: scale(1.1);
 }
 
@@ -121,7 +121,7 @@ header nav ul li a:hover::after {
     flex: 1; /* Ensure text takes up available space */
     position: relative;
     padding: 50px 60px; /* Increase padding to make the bubble bigger */
-    background-color: #a82e21; /* Red background color for the bubble */
+    background-color: #c85d9c; /* Red background color for the bubble */
     color: white;
     font-weight: bold;
     text-align: left;
@@ -246,7 +246,35 @@ header nav ul li a:hover::after {
   .popular-items h2 {
     font-size: 2rem;
     margin-bottom: 20px;
+    color: #e1d2d2; /* Neon pink color */
+    text-shadow:
+      0 0 5px #ff69b4,
+      0 0 10px #ff69b4,
+      0 0 20px #ff69b4,
+      0 0 30px #ff69b4,
+      0 0 40px #ff69b4;
+    animation: neonFlicker 1.5s infinite alternate;
   }
+  
+  @keyframes neonFlicker {
+    from {
+      text-shadow:
+        0 0 5px #ff69b4,
+        0 0 10px #ff69b4,
+        0 0 20px #ff69b4,
+        0 0 30px #ff69b4,
+        0 0 40px #ff69b4;
+    }
+    to {
+      text-shadow:
+        0 0 2px #ff69b4,
+        0 0 5px #ff69b4,
+        0 0 10px #ff69b4,
+        0 0 15px #ff69b4,
+        0 0 20px #ff69b4;
+    }
+  }
+  
   
   .item-slider {
     display: flex;
@@ -266,7 +294,7 @@ header nav ul li a:hover::after {
   }
   
   .full-menu {
-    background-color: #a82e21;
+    background-color: #c85d9c;
     color: white;
     border: none;
     margin-top: 10px;
@@ -279,7 +307,7 @@ header nav ul li a:hover::after {
   }
   
   .full-menu:hover {
-    background-color: #cf3a2a;
+    background-color: #c560a0;
     transform: scale(1.2);
   }
   
@@ -397,8 +425,8 @@ header nav ul li a:hover::after {
   
   /* Footer Container */
 .custom-footer {
-  background-color: #000; /* Black background */
-  color: #fff; /* White text */
+  background-color: white; /* Black background */
+  color: #000000; /* White text */
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -529,7 +557,7 @@ header nav ul li a:hover::after {
 
 .info-cards .card .card-link {
   font-size: 1rem;
-  color: #a82e21;
+  color: #c85d9c;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
@@ -547,5 +575,44 @@ header nav ul li a:hover::after {
 
   .info-cards .card {
       flex: 1 1 100%;
+  }
+}
+
+
+/* Neon Background Container */
+.neon-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allows interactions with content above */
+  z-index: -1;         /* Place behind all other content */
+  overflow: hidden;
+}
+
+.neon-phrase {
+  position: absolute;
+  font-size: 36px;
+  color: #ff69b4; /* Neon pink color */
+  opacity: 0.8;   /* Slight transparency */
+  text-shadow:
+    0 0 5px #ff69b4,
+    0 0 10px #ff69b4,
+    0 0 20px #ff69b4,
+    0 0 30px #ff69b4,
+    0 0 40px #ff69b4;
+  animation: float 8s ease-in-out infinite;
+}
+/* Floating Animation Keyframes */
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, -20px);
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }
